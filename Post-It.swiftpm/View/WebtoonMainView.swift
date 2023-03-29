@@ -10,24 +10,25 @@ struct WebtoonMainView: View {
   let bannerItem:[String] = ["banner1", "banner2", "banner3"]
   
   var body: some View {
+    GeometryReader { geo in
     TabView(selection: $selection) {
-      ScrollView {
-        VStack(spacing: 30) {
-            GeometryReader { geo in
-              let w = geo.size.width
-              
-              TabView {
-                ForEach(0..<bannerItem.count) { index in
-                  Image(bannerItem[index])
-                    .resizable()
-                    .frame(width: w, height: 300)
-                    .aspectRatio(contentMode: .fit)
-                  
-                }
+        ScrollView {
+          VStack(spacing: 30) {
+            let w = geo.size.width
+            
+            TabView {
+              ForEach(0..<bannerItem.count) { index in
+                Image(bannerItem[index])
+                  .resizable()
+                  .frame(width: w, height: 300)
+                  .aspectRatio(contentMode: .fit)
+                
               }
-              .tabViewStyle(.page)
-              .frame(width: w, height: 300)
             }
+            .tabViewStyle(.page)
+            .frame(width: w, height: 300)
+            
+            
             
             HStack(spacing: 118) {
               Text("신작")
@@ -84,48 +85,49 @@ struct WebtoonMainView: View {
               
               
             )}
-        
-      }.tabItem {
+          
+          
+        }.tabItem {
           Image("webtoon_active")
-          .resizable()
-          .frame(width: 5, height: 5)
-          .aspectRatio(contentMode: .fit)
+            .resizable()
+            .frame(width: 5, height: 5)
+            .aspectRatio(contentMode: .fit)
           Text("웹툰")
-      }.tag(1)
-      
-      Text("Another Tab")
-        .tabItem {
+        }.tag(1)
+        
+        Text("Another Tab")
+          .tabItem {
             Spacer()
             Image("recommand_deActive")
             Text("추천완결")
-        }
-        .tag(2)
-      Text("The Last Tab")
-        .tabItem {
-          Image("bestChallange_deActive")
-          Text("배스트도전")
-        }
-        .tag(3)
-      Text("The Last Tab")
-        .tabItem {
-          Image("myPage_deActive")
-          Text("MY")
-        }
-        .tag(3)
-      Text("The Last Tab")
-        .tabItem {
-          Image("moreInfo_deActive")
-          Text("더보기")
-        }
-        .tag(3)
-    }
-    .accentColor(.black)
-    .onAppear() {
-      UITabBar.appearance().barTintColor = .white
-      
+          }
+          .tag(2)
+        Text("The Last Tab")
+          .tabItem {
+            Image("bestChallange_deActive")
+            Text("배스트도전")
+          }
+          .tag(3)
+        Text("The Last Tab")
+          .tabItem {
+            Image("myPage_deActive")
+            Text("MY")
+          }
+          .tag(3)
+        Text("The Last Tab")
+          .tabItem {
+            Image("moreInfo_deActive")
+            Text("더보기")
+          }
+          .tag(3)
+      }
+      .accentColor(.black)
+      .onAppear() {
+        UITabBar.appearance().barTintColor = .white
+        
+      }
     }
   }
-   
 }
 
  
