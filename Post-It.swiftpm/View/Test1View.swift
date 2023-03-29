@@ -27,18 +27,31 @@ struct Test1View: View {
                     player.seek(to: .zero)
                     player.play()
                 }
-                
-//            Button {
-//                isPlaying ? player.pause() : player.play()
-//                isPlaying.toggle()
-//                player.seek(to: .zero)
-//            } label: {
-//                Image(systemName: isPlaying ? "stop" : "play")
-//                    .padding()
-//            }
+            ForEach(0..<2) { i in
+                testImages[i]
+                    .resizable()
+                    .scaledToFit()
+            }
+            VideoPlayer(player: player)
+                .scaledToFit()
+                .onAppear(){
+                    player.seek(to: .zero)
+                    player.play()
+                }
+            VideoPlayer(player: player)
+                .scaledToFit()
+                .onAppear(){
+                    player.seek(to: .zero)
+                    player.play()
+                }
+            ForEach(0..<3) { i in
+                testImages[i]
+                    .resizable()
+                    .scaledToFit()
+            }
         }
         .tabViewStyle(.page)
-        .ignoresSafeArea()
+//        .ignoresSafeArea()
     }
 }
 
