@@ -23,14 +23,19 @@ struct Test1View: View {
             }
             VideoPlayer(player: player)
                 .scaledToFit()
-            Button {
-                isPlaying ? player.pause() : player.play()
-                isPlaying.toggle()
-                player.seek(to: .zero)
-            } label: {
-                Image(systemName: isPlaying ? "stop" : "play")
-                    .padding()
-            }
+                .onAppear(){
+                    player.seek(to: .zero)
+                    player.play()
+                }
+                
+//            Button {
+//                isPlaying ? player.pause() : player.play()
+//                isPlaying.toggle()
+//                player.seek(to: .zero)
+//            } label: {
+//                Image(systemName: isPlaying ? "stop" : "play")
+//                    .padding()
+//            }
         }
         .tabViewStyle(.page)
         .ignoresSafeArea()
