@@ -11,7 +11,8 @@ import AVKit
 struct Test1View: View {
     let testImages: [Image] =
     [Image("Judy"), Image("Isaac"), Image("Saya"), Image("NextButton")]
-    @State var player = AVPlayer(url: Bundle.main.url(forResource: "cake", withExtension: "mp4")!)
+    @State var player1 = AVPlayer(url: Bundle.main.url(forResource: "cake", withExtension: "mp4")!)
+    @State var player2 = AVPlayer(url: Bundle.main.url(forResource: "chair", withExtension: "mp4")!)
     @State var isPlaying: Bool = false
     
     var body: some View {
@@ -20,29 +21,37 @@ struct Test1View: View {
                 testImages[i]
                     .resizable()
                     .scaledToFit()
+//                    .ignoresSafeArea(.all)
+//                    .edgesIgnoringSafeArea(.all)
+                
             }
-            VideoPlayer(player: player)
+            VideoPlayer(player: player1)
                 .scaledToFit()
                 .onAppear(){
-                    player.seek(to: .zero)
-                    player.play()
+                    player1.seek(to: .zero)
+                    player1.play()
                 }
+//                .ignoresSafeArea(.all)
+                .edgesIgnoringSafeArea(.bottom)
             ForEach(0..<2) { i in
                 testImages[i]
                     .resizable()
                     .scaledToFit()
             }
-            VideoPlayer(player: player)
+            VideoPlayer(player: player1)
                 .scaledToFit()
                 .onAppear(){
-                    player.seek(to: .zero)
-                    player.play()
+                    player1.seek(to: .zero)
+                    player1.play()
                 }
-            VideoPlayer(player: player)
+            VideoPlayer(player: player2)
                 .scaledToFit()
                 .onAppear(){
-                    player.seek(to: .zero)
-                    player.play()
+                    player2.seek(to: .zero)
+                    player2.play()
+                }
+                .onDisappear(){
+                    player2.pause()
                 }
             ForEach(0..<3) { i in
                 testImages[i]
@@ -51,7 +60,6 @@ struct Test1View: View {
             }
         }
         .tabViewStyle(.page)
-//        .ignoresSafeArea()
     }
 }
 
