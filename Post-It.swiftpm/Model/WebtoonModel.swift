@@ -14,7 +14,7 @@ struct WebtoonModel {
 }
 
 var WebtoonData: [WebtoonModel] = [
-  
+  WebtoonModel(image: "image0", title: " The 게이머", subTitle: " 성상영/상아 ★ 8.45"),
   WebtoonModel(image: "image1", title: " 외모지상주의", subTitle: " 박태준 ★ 9.47"),
   WebtoonModel(image: "image2", title: " 나 혼자 만렙 뉴비", subTitle: " WAN.Z ★ 9.90"),
   WebtoonModel(image: "image3", title: " 대학원 탈출일지", subTitle: " 요다 ★ 9.98"),
@@ -37,7 +37,6 @@ var WebtoonData: [WebtoonModel] = [
   WebtoonModel(image: "image20", title: " A.I.닥터", subTitle: " ZAINO/쿠큐 ★ 9.97"),
   WebtoonModel(image: "image21", title: " 연애의 기록", subTitle: " 베어리 ★ 9.45"),
   WebtoonModel(image: "image22", title: " 전남편의 미친개를 길들...", subTitle: " 철무장미/자개 ★ 9.98"),
-  WebtoonModel(image: "image23", title: " 히어로 킬러", subTitle: " 꿀벌/벌꿀 ★ 9.96"),
-  WebtoonModel(image: "image24", title: " The 게이머", subTitle: " 성상영/상아 ★ 8.45")
+  WebtoonModel(image: "image23", title: " 히어로 킬러", subTitle: " 꿀벌/벌꿀 ★ 9.96")
 
 ]
