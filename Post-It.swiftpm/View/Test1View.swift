@@ -29,13 +29,13 @@ struct Test1View: View {
                             print("index \(i) 이미지")
                         }
                 }
-//                PlayerView(player: player1)
-//                    .onAppear() {
-//                        player1.play()
-//                    }
-//                    .onDisappear() {
-//                        player1.pause()
-//                    }
+                //                PlayerView(player: player1)
+                //                    .onAppear() {
+                //                        player1.play()
+                //                    }
+                //                    .onDisappear() {
+                //                        player1.pause()
+                //                    }
                 VideoPlayer(player: player1)
                     .scaledToFit()
                     .onAppear() {
@@ -71,7 +71,7 @@ struct Test1View: View {
                 VideoPlayer(player: player2)
                     .scaledToFit()
                     .onAppear(){
-//                        player2.seek(to: .zero)
+                        //                        player2.seek(to: .zero)
                         player2.play()
                         print("player2 is on appear and selection : 7")
                     }
@@ -80,13 +80,13 @@ struct Test1View: View {
                         player2.seek(to: .zero)
                     }
                     .tag(7)
-//                PlayerView(player: player2)
-//                    .onAppear(){
-//                        player2.play()
-//                    }
-//                    .onDisappear() {
-//                        player2.pause()
-//                    }
+                //                PlayerView(player: player2)
+                //                    .onAppear(){
+                //                        player2.play()
+                //                    }
+                //                    .onDisappear() {
+                //                        player2.pause()
+                //                    }
                 ForEach(0..<3) { i in
                     testImages[i]
                         .resizable()
@@ -125,11 +125,17 @@ struct PlayerView: View {
     var body: some View {
         VideoPlayer(player: player)
             .scaledToFit()
-//            .frame(height: 200)
+        //            .frame(height: 200)
     }
 }
 
-struct SwiftUIView_Previews: PreviewProvider {
+struct Test1View_Previews: PreviewProvider {
+    static var previews: some View {
+        Test1View()
+    }
+}
+
+struct Test1View_Previews_Landscape: PreviewProvider {
     static var previews: some View {
         Test1View()
             .previewInterfaceOrientation(.landscapeLeft

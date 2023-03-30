@@ -75,3 +75,9 @@ struct Test2View_Previews: PreviewProvider {
         Test2View()
     }
 }
+
+struct Test2View_Previews_Landscape: PreviewProvider {
+    static var previews: some View {
+        WebtoonMainView().previewInterfaceOrientation(.landscapeLeft)
+    }
+}
