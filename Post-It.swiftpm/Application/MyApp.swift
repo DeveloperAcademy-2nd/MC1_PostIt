@@ -4,8 +4,9 @@ import SwiftUI
 struct MyApp: App {
     var body: some Scene {
         WindowGroup {
-//          WebtoonMainView()
-            Test2View()
+//            QnA1View()
+//            Test2View()
+            WebtoonContentView()
         }
     }
 }
