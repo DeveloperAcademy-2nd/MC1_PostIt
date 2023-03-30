@@ -13,6 +13,7 @@ struct Test2View: View {
     [Image("Judy"), Image("Isaac"), Image("Saya"), Image("NextButton")]
     var player1 = AVPlayer(url: Bundle.main.url(forResource: "cake", withExtension: "mp4")!)
     var player2 = AVPlayer(url: Bundle.main.url(forResource: "chair", withExtension: "mp4")!)
+    var player3 = AVPlayer(url: Bundle.main.url(forResource: "cake2", withExtension: "mp4")!)
     @State private var selection = 0
     
     var body: some View {
@@ -39,10 +40,13 @@ struct Test2View: View {
             VideoPlayer(player: player2)
                 .scaledToFit()
                 .tag(5)
+            VideoPlayer(player: player3)
+                .scaledToFit()
+                .tag(6)
             testImages[1]
                 .resizable()
                 .scaledToFit()
-                .tag(6)
+                .tag(7)
         }
         .tabViewStyle(.page)
         .onChange(of: selection) { newSelection in
@@ -52,18 +56,26 @@ struct Test2View: View {
             switch newSelection {
             case 4:
                 player2.pause()
+                player3.pause()
+                
                 player1.seek(to: .zero)
                 player1.play()
-                //                print("\(newSelection)")
             case 5:
                 player1.pause()
+                player2.pause()
+                
                 player2.seek(to: .zero)
                 player2.play()
+            case 6:
+                player1.pause()
+                player2.pause()
                 
-                //                print("\(newSelection)")
+                player3.seek(to: .zero)
+                player3.play()
             default:
                 player1.pause()
                 player2.pause()
+                player3.pause()
             }
         }
     }
