@@ -18,16 +18,11 @@ struct Content {
 struct WebtoonContentView: View {
     @State var contents: [Content] = []
     @State var totalCount: Int = 0
-//    @State var idxRange: [Int] = []
-//    let images = [Image("#1"), Image("#2")]
-    
     @State var index = 0
     
     var body: some View {
         
         VStack {
-//            Text(idxRange.description)
-//                .font(.largeTitle)
             TabView(selection: $index) {
                 ForEach(0..<contents.count, id: \.self) { i in
                     if let image = contents[i].image {
@@ -41,47 +36,10 @@ struct WebtoonContentView: View {
                         someView
                     }
                 }
-                //                QnA1View()
-                //                Image("#1")
-                //                ForEach(0..<5, id: \.self) {i in
-                //                    if let image = contents[i].image {
-                //                        image
-                //                            .resizable()
-                //                            .scaledToFit()
-                //                        //                            .tag(i)
-                //                    } else if let player = contents[i].video {
-                //                        VideoPlayer(player: player)
-                //                            .scaledToFit()
-                //                            .tag(i)
-                //                    } else if let aView = contents[i].aView {
-                //                        aView
-                //                            .tag(i)
-                //                    }
-                //                    images[i]
-                //                        .resizable()
-                //                        .scaledToFit()
-                //                        .tag(i)
-                //                }
-                //                VideoPlayer(player: videos[0])
-                //                    .scaledToFit()
-                //                    .tag(4)
-                //                VideoPlayer(player: videos[1])
-                //                    .scaledToFit()
-                //                    .tag(5)
-                //                VideoPlayer(player: videos[2])
-                //                    .scaledToFit()
-                //                    .tag(6)
-                //                images[1]
-                //                    .resizable()
-                //                    .scaledToFit()
-                //                    .tag(7)
             }
             .tabViewStyle(.page(indexDisplayMode: .never))
-            //                .tabViewStyle(.page)
             .ignoresSafeArea()
             .onAppear() {
-//                print("before function contents: \(contents)")
-                
                 for i in 0...3 {
                     contents.append(Content(image: Image("#\(i)")))
                 }
@@ -91,8 +49,6 @@ struct WebtoonContentView: View {
                 contents.append(Content(someView: AnyView(Sample2View())))
                 
                 totalCount = contents.count
-                
-//                print("after function contents: \(contents)")
             }
             .onChange(of: index) { newIndex in
                 pauseAllPlayers()
@@ -104,10 +60,7 @@ struct WebtoonContentView: View {
         }
         ProgressView((""), value: Double(index+1), total: Double(totalCount))
     }
-    //        .onAppear {
-    //            self.totalCount = contents.count
-    //
-    //        }
+
     func pauseAllPlayers() {
         for content in contents{
             if let player = content.video {
@@ -116,40 +69,6 @@ struct WebtoonContentView: View {
         }
     }
 }
-
-//    init()  {
-//        let player0 = AVPlayer(url: Bundle.main.url(forResource: "cake", withExtension: "mp4")!)
-//        let player1 = AVPlayer(url: Bundle.main.url(forResource: "chair", withExtension: "mp4")!)
-//        let player2 = AVPlayer(url: Bundle.main.url(forResource: "cake2", withExtension: "mp4")!)
-//
-//        //        self.images = []
-//        //        self.videos = [player0, player1, player2]
-//        var contents: [Content] = []
-//        for i in 0...3 {
-//            contents.append(Content(image: Image("#\(i)")))
-//        }
-//        contents.append(Content(video: player0))
-//        contents.append(Content(video: player1))
-//        contents.append(Content(video: player2))
-//
-//        print(contents)
-////        contents.append(Content(aView: AnyView(Sample1View())))
-////        contents.append()
-//
-//        self.contents = contents
-//        //        for i in 0...3 {
-//        //            self.images.append(Image("#\(i)"))
-//        //        }
-//    }
-
-//}
-
-//struct TabItemView: View {
-//    let content: View
-//    var body: some View {
-//        content
-//    }
-//}
 
 struct Sample1View: View {
     var body: some View {
