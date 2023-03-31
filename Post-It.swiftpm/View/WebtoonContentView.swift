@@ -40,11 +40,16 @@ struct WebtoonContentView: View {
             .tabViewStyle(.page(indexDisplayMode: .never))
             .ignoresSafeArea()
             .onAppear() {
-                for i in 0...3 {
+                for i in 1...13 {
                     contents.append(Content(image: Image("#\(i)")))
                 }
-                contents.append(Content(video: AVPlayer(url: Bundle.main.url(forResource: "cake", withExtension: "mp4")!)))
+                contents.append(Content(video: AVPlayer(url: Bundle.main.url(forResource: "cake2", withExtension: "mp4")!)))
+                
+                for i in 14...26{
+                    contents.append(Content(image: Image("#\(i)")))
+                }
                 contents.append(Content(video: AVPlayer(url: Bundle.main.url(forResource: "chair", withExtension: "mp4")!)))
+                
                 contents.append(Content(someView: AnyView(Sample1View())))
                 contents.append(Content(someView: AnyView(Sample2View())))
                 
