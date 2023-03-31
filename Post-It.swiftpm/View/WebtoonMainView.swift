@@ -7,7 +7,6 @@ struct WebtoonMainView: View {
   //  let sectionTitle =  "신작 매일+ 월 화 수 목 금 토 일 완결"
   @State private var selection = 1
   
-  let webtoonContentView = WebtoonContentView.makeWebtoonContentView()
   var columns: [GridItem] = Array(repeating: .init(.flexible()), count: 6)
   let bannerItem:[String] = ["banner1", "banner2", "banner3"]
   
@@ -65,7 +64,7 @@ struct WebtoonMainView: View {
                 ForEach(WebtoonData, id: \.title) { index in
                   
                   NavigationLink(
-                    destination: webtoonContentView) {
+                    destination: WebtoonContentView()) {
                       VStack {
                         Image(index.image)
                           .resizable()
